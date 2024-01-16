@@ -1,0 +1,170 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background: #61439e;
+    color: white;
+    padding: 0px 40px 0px 0px;
+}
+.navbar ul button{
+    background: #61439e;
+    color: white;
+    border: none;
+}
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+.searchbar{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.searchbar button{
+    border: none;
+    border-radius: 5px;
+    padding: 9px; 
+    background-color: green;
+    color: white;
+}
+.search{
+    width: 165px;
+    border-radius: 5px;
+    border: none;
+    height: 35px;
+    padding: 0px 8px;
+}
+::placeholder {
+    color: #cec9c9;
+    opacity: 1;
+}
+
+.heading{
+    background: mediumpurple;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 6px 0px;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.heading-div{
+    display: flex;
+    justify-content: center;
+}
+.heading-sub-div{
+    width: 100%;
+    max-width: 1242px;
+}
+.new-task{
+    display: flex;
+    justify-content: space-between;
+}
+.new-task ::placeholder{
+    
+}
+.task{
+    width: 745px;
+    height: 80px;
+    border-radius: 8px;
+    border: 1px solid #c2bdbd;
+}
+.date{
+    width: 135px;
+    height: 21px;
+    padding: 6px 
+}
+.comma-input{width: 184px;
+    height: 26px;
+    padding: 5px;
+}
+.task-input{
+    display: flex;
+    margin-top: 5px;
+    gap: 15px;
+}
+.task-input button{
+    border: none;
+    border-radius: 5px;
+    padding: 9px; 
+    background-color: green;
+    color: white;
+}
+.first-buttons{
+    display: flex;
+    margin-top: 8px;
+    gap: 5px;
+}
+.first-buttons button{
+    border: none;
+    border-radius: 5px;
+    padding: 9px; 
+    color: white;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  .tag{
+    text-align: center;
+  }
+  .second-td{
+    display: flex;
+    gap: 25px;
+  }
+  .third-td{
+    color: red;
+    font-weight: 700;
+  }
+  .fourth-td{
+
+  }
+  .fifth-td{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  .btn-one{
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    background: #eb9d3a;
+  }
+  .btn-two{
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    color: white;
+    background: #858380;
+  }
+  .btn-three{
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    background: green;
+    color: white;  
+}
+
+/* class binding */
+.filter-by-tags{
+    background: mediumpurple;
+}
+.show{
+    background: #858380;
+}
+.holiday{
+    background: green;
+}
