@@ -26,15 +26,15 @@
         <!-- task input section -->
         <div class="new-task">
             <div>
-                <input class="task" type="text" placeholder="Add a new task">
+                <textarea [(ngModel)]="taskObj.taskName" class="task" type="text" placeholder="Add a new task"></textarea>
             </div>
             <div>
                 <div>
-                    <input type="date" class="date">
+                    <input [(ngModel)]="taskObj.dueDate" type="date" class="date">
                 </div>
                 <div class="task-input">
-                    <input class="comma-input" type="text" placeholder="Enter Comma Seperated tags">
-                    <button>Add task</button>
+                    <input [(ngModel)]="taskObj.tags" class="comma-input" type="text" placeholder="Enter Comma Seperated tags">
+                    <button (click)="createNewTask()">Add task</button>
                 </div>
             </div>
         </div>
