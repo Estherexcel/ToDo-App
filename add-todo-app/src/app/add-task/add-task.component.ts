@@ -19,18 +19,34 @@ export class AddTaskComponent {
   taskObj: Task = {
     name: '',
     tags: [],
-    date: new Date()
+    date: new Date(),
+    isCompleted: false,
+    index: 0
   };
 
 
   taskList: Task[] = []
+
+
+  constructor (){
+    debugger
+    // const localData = localStorage.getItem('addTask');
+   
+  }
   createNewTask() {
     const task = JSON.stringify(this.taskObj)
-    const parse = JSON.stringify(task)
+    const parse = JSON.parse(task)
     this.taskList.push(this.taskObj)   // adding a new task to the tasklist
     localStorage.setItem('addTask', JSON.stringify(this.taskList))   // to save list in local storage
-    console.log(this.taskList)
+    // console.log(this.taskList)
   }
-
+  onComplete(){
+    debugger;
+    localStorage.setItem('addTask', JSON.stringify(this.taskList))
+  }
+  onRemove(index:number){
+    this.taskList.splice(index,1)
+    localStorage.setItem('addTask', JSON.stringify(this.taskList))
+  }
 }
 

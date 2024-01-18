@@ -80,12 +80,13 @@
           <tr *ngFor="task of taskList;let sr=index">
             <td>{{sr+1}}</td>
             <td class="second-td">
-              <input type="checkbox">
+              <input (change)="onComplete" [(ngModel)]="taskObj.isCompleted" type="checkbox">
               <label for="task"> {{taskObj.name}}</label>
             </td>
-            <td class="third-td">X</td>
+            <td (click)="onRemove(sr)" class="third-td">X</td>
             <td class="fourth-td">{{taskObj.date| date: 'dd-mm-yyyy'}}</td>
             <td class="fifth-td">
+              {{taskObj.tags}}
               <button class="btn-one">Health</button>
               <button class="btn-two">Fitness</button>
               <button class="btn-three">Default</button>

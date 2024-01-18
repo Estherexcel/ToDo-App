@@ -128,7 +128,9 @@ table {
   .third-td{
     color: red;
     font-weight: 700;
+    cursor: pointer;
   }
+  
   .fourth-td{
 
   }
