@@ -1,8 +1,8 @@
 export interface Task {
     name: string;
-    index: number;
     date: Date;
     tags: string[];
+    tagsString: string;
     isCompleted: boolean
 }
 

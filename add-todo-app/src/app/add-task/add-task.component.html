@@ -33,7 +33,7 @@
           <input [(ngModel)]="taskObj.date" type="date" class="date">
         </div>
         <div class="task-input">
-          <input [(ngModel)]="taskObj.tags" class="comma-input" type="text" placeholder="Enter Comma Seperated tags">
+          <input [(ngModel)]="taskObj.tagsString" class="comma-input" type="text" placeholder="Enter Comma Seperated tags">
           <button (click)="createNewTask()">Add task</button>
         </div>
       </div>
@@ -43,23 +43,17 @@
     <!-- task buttons -->
     <div>
       <div class="first-buttons">
+        <!-- <button class="filter-by-tags" (click)="setFilter(tags)">Filter By</button>
+        <button class="show" (click)="setFilter(showAll)">Show All</button>
+        <button class="show" (click)="setFilter(showCompleted)">Show Completed</button> -->
+
         <button class="filter-by-tags">Filter By</button>
         <button class="show">Show All</button>
         <button class="show">Show Completed</button>
       </div>
-      <div class="first-buttons">
-        <button class="show">Tags Group</button>
-        <button class="show">Default</button>
-        <button class="show">Hobby</button>
-        <button class="holiday">Holiday</button>
-        <button class="holiday">Financial</button>
-        <button class="show">Fun</button>
-        <button class="holiday">Emergency</button>
-        <button class="show">Health</button>
-        <button class="show">Work</button>
-        <button class="show">Education</button>
-        <button class="show">Social</button>
-        <button class="show">Travel</button>
+      <div class="first-buttons" *ngIf="filterType == 'tags'">
+        <button class="show" *ngFor="let tag of tagList">{{tag}}</button>
+        
       </div>
     </div>
 
@@ -77,19 +71,20 @@
         </thead>
         <!-- first row -->
         <tbody>
-          <tr *ngFor="task of taskList;let sr=index">
-            <td>{{sr+1}}</td>
+          <tr *ngFor="let task of taskList;let sr=index">
+            <td>{{sr + 1}}</td>
             <td class="second-td">
-              <input (change)="onComplete" [(ngModel)]="taskObj.isCompleted" type="checkbox">
-              <label for="task"> {{taskObj.name}}</label>
+              <input (change)="onComplete" [(ngModel)]="task.isCompleted" type="checkbox">
+              <label for="task"> {{task.name}}</label>
             </td>
             <td (click)="onRemove(sr)" class="third-td">X</td>
-            <td class="fourth-td">{{taskObj.date| date: 'dd-mm-yyyy'}}</td>
+            <td class="fourth-td">{{task.date}}</td>
             <td class="fifth-td">
-              {{taskObj.tags}}
-              <button class="btn-one">Health</button>
-              <button class="btn-two">Fitness</button>
-              <button class="btn-three">Default</button>
+              <button class="btn-one" *ngFor="let tag of task.tags">
+                {{ tag }}
+              </button>
+              <!-- <button class="btn-two">Fitness</button>
+              <button class="btn-three">Default</button> -->
             </td>
           </tr>
           <!-- second row -->
