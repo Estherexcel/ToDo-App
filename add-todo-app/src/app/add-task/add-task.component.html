@@ -53,7 +53,7 @@
 
       </div>
       <div class="first-buttons" >
-        <button class="show" [ngClass]="{'selected': fillterTag == tag}" (click) = "fillterTag = tag" *ngFor="let tag of stringArray" >{{tag}}</button>
+        <button class="show" [ngClass]="{'selected': selectedTag == tag}" (click)="fillterByTag(tag)" *ngFor="let tag of stringArray" >{{tag}}</button>
       </div>
     </div>
 
@@ -80,7 +80,7 @@
             <td (click)="onRemove(sr)" class="third-td">X</td>
             <td class="fourth-td">{{task.date}}</td>
             <td class="fifth-td">
-              <button class="btn-one" *ngFor="let tag of task.tags">
+              <button (click)="fillterByTag(tag)" class="btn-one"  *ngFor="let tag of task.tags">
                 {{ tag }}
               </button>
               <!-- <button class="btn-two">Fitness</button>

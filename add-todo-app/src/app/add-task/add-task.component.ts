@@ -30,7 +30,15 @@ export class AddTaskComponent implements OnInit {
   taskList: Task[] = []
   tagList: string []=['work', 'health', 'market', 'meeting', 'calls', 'defect', 'story', 'interview'];
   stringArray: string[] = [];
-    fillterTag: string = '';
+    // fillterTag: string = '';
+selectedTag: string = '';
+listOfTasks: Task[] = [
+  { name: 'Lina', isCompleted: false, date: new Date(), tags: ['work', 'health', 'market', 'meeting'], tagsString: '' },
+  { name: 'Jane', isCompleted: false, date: new Date(), tags: ['defect', 'health', 'market', 'meeting'], tagsString: '' },
+  { name: 'Alex', isCompleted: false, date: new Date(), tags: ['work', 'interview', 'market', 'meeting'], tagsString: '' },
+  { name: 'Sead', isCompleted: false, date: new Date(), tags: ['work', 'health', 'story', 'meeting'], tagsString: '' }
+];
+
 
   
   
@@ -83,8 +91,23 @@ ngOnInit(): void {
       this.stringArray = [];
     }
     localStorage.setItem('addTask', JSON.stringify(this.tagList))
-  }
-  
+  } 
+
+
+fillterByTag(tag: string) : void{
+  console.log('here');
+    this.selectedTag = tag
 }
 
-
+filteredTasks(): Task[] {
+  console.log('here');
+  
+  if (this.selectedTag) {
+    console.log('here');
+    
+    return this.listOfTasks.filter(task => task.tags.includes(this.selectedTag));
+  } else {
+    return this.listOfTasks;
+  }
+}
+}
