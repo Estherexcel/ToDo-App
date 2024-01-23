@@ -46,14 +46,14 @@
         <!-- <button class="filter-by-tags" (click)="setFilter(tags)">Filter By</button>
         <button class="show" (click)="setFilter(showAll)">Show All</button>
         <button class="show" (click)="setFilter(showCompleted)">Show Completed</button> -->
-
-        <button class="filter-by-tags">Filter By</button>
+        <button class="show" (click)="setFilter()" [ngClass]="{ 'clicked': stringArray.length > 0 }" >Filter By</button>
         <button class="show">Show All</button>
         <button class="show">Show Completed</button>
-      </div>
-      <div class="first-buttons" *ngIf="filterType == 'tags'">
-        <button class="show" *ngFor="let tag of tagList">{{tag}}</button>
         
+
+      </div>
+      <div class="first-buttons" >
+        <button class="show" [ngClass]="{'selected': fillterTag == tag}" (click) = "fillterTag = tag" *ngFor="let tag of stringArray" >{{tag}}</button>
       </div>
     </div>
 

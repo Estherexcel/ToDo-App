@@ -21,33 +21,42 @@ export class AddTaskComponent implements OnInit {
     tags: [],
     date: new Date(),
     isCompleted: false,
-    tagsString: ''
+    tagsString: '',
+    
   };
 
 
 
   taskList: Task[] = []
-  tagList: string []=['work', 'health', 'market', 'meeting', 'calls', 'defect', 'story', 'interviwe']
-  filterType: string = '';
+  tagList: string []=['work', 'health', 'market', 'meeting', 'calls', 'defect', 'story', 'interview'];
+  stringArray: string[] = [];
+    fillterTag: string = '';
+
+  
   
   
   
 ngOnInit(): void {
-  this.taskList = JSON.parse(localStorage.getItem('addTask')!);
-
+  
+  let localData = JSON.parse(localStorage.getItem('addTask')!);
+  this.taskList = localData ? localData : []
+  
 }
 
   createNewTask() {
     this.taskObj.tags = this.getArrayFromCommaSeperatedString(this.taskObj.tagsString);
+    
     this.taskList.push(this.taskObj);  // adding a new task to the tasklist
+
     this.taskObj= {
       name: '',
       tags: [],
       date: new Date(),
       isCompleted: false,
-      tagsString: ''
+      tagsString: '',
+  
     };
-    // console.log("Task list first:", this.taskList)
+    console.log("Task list first:", this.taskList)
 
     // console.log("Task Obj: ", this.taskObj)
     localStorage.setItem('addTask', JSON.stringify(this.taskList))   // to save list in local storage
@@ -66,9 +75,16 @@ ngOnInit(): void {
     return arr;
   }
 
-  setFilter(type: string){
-    this.filterType = type;
+  setFilter(){
+    if(this.stringArray.length === 0){
+      this.stringArray = [...this.tagList];
+     
+    }else{
+      this.stringArray = [];
+    }
+    localStorage.setItem('addTask', JSON.stringify(this.tagList))
   }
   
 }
+
 

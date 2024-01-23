@@ -3,6 +3,6 @@ export interface Task {
     date: Date;
     tags: string[];
     tagsString: string;
-    isCompleted: boolean
+    isCompleted: boolean;
 }
 
